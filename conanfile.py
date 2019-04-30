@@ -37,6 +37,20 @@ class LinuxdeployConan(ConanFile):
 
     def package(self):
         self.copy("linuxdeploy", src="bin", dst="bin")
+        self.copy("*.a", src="src", dst="lib", keep_path=False, symlinks=True)
+        self.copy("*.a", src="lib/linuxdeploy-desktopfile/src", dst="lib", keep_path=False, symlinks=True)
+        self.copy("excludelist.h", src="src/core", dst="include/linuxdeploy")
+        self.copy("*.h", src="linuxdeploy/include", dst="include")
+        self.copy("*.h", src="linuxdeploy/lib/linuxdeploy-desktopfile/include", dst="include")
+        self.copy("*.hpp", src="linuxdeploy/lib/cpp-subprocess", dst="include")
+
+    def package_info(self):
+        self.cpp_info.libs = ["liblinuxdeploy_core.a", "liblinuxdeploy_core_copyright.a", "pthread",
+                              "liblinuxdeploy_core_log.a", "liblinuxdeploy_util.a", "liblinuxdeploy_plugin.a",
+                              "liblinuxdeploy_desktopfile_static.a"]
+
+        self.cpp_info.cflags = ["-lpthread"]
+        self.cpp_info.cxxflags = ["-lpthread"]
 
     def deploy(self):
         self.copy("*", dst="bin", src="bin")
