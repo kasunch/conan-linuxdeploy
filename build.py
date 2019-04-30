@@ -1,7 +1,8 @@
 from cpt.packager import ConanMultiPackager
 
-
 if __name__ == "__main__":
-    builder = ConanMultiPackager()
-    builder.add_common_builds(shared_option_name="linuxdeploy:shared")
+    remotes = [("https://api.bintray.com/conan/appimage-conan-community/public-conan", "true", "appimage"),
+               ("https://api.bintray.com/conan/bincrafters/public-conan", "true", "bincrafters")]
+    builder = ConanMultiPackager(remotes=remotes, build_policy="missing")
+    builder.add_common_builds()
     builder.run()
