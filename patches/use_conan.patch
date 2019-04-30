@@ -1,0 +1,17 @@
+Index: CMakeLists.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- CMakeLists.txt	(revision 5c3a51fd487431022c8924d7a854a94ba8d64ad0)
++++ CMakeLists.txt	(date 1556639444000)
+@@ -10,6 +10,9 @@
+ set(USE_SYSTEM_BOOST OFF CACHE BOOL "Set to ON to use system boost libraries instead of building up to date boost libraries from source")
+ set(USE_SYSTEM_CIMG ON CACHE BOOL "Set to OFF to use CImg library bundled in lib directory")
+ 
++include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
++conan_basic_setup(NO_OUTPUT_DIRS)
++
+ if (EXISTS "${PROJECT_SOURCE_DIR}/lib/cpp-subprocess/subprocess.hpp")
+ else()
+   message (FATAL_ERROR "Missing submodule(s), please 'git submodule update --init --recursive'...")
