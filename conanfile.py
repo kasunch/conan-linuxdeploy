@@ -16,6 +16,7 @@ class LinuxdeployConan(ConanFile):
 
     def source(self):
         self.run("git clone https://github.com/linuxdeploy/linuxdeploy.git --depth=1")
+        self.run("cd linuxdeploy && git rm --cached lib/boost*")
         self.run("cd linuxdeploy && git submodule update --init --recursive")
         tools.patch(base_path="linuxdeploy", patch_file="patches/use_conan.patch")
 
