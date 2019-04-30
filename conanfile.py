@@ -1,5 +1,5 @@
 from conans import ConanFile, CMake, tools
-
+import os
 
 class LinuxdeployConan(ConanFile):
     name = "linuxdeploy"
@@ -52,6 +52,7 @@ class LinuxdeployConan(ConanFile):
 
         self.cpp_info.cflags = ["-lpthread"]
         self.cpp_info.cxxflags = ["-lpthread"]
+        self.env_info.PATH.append(os.path.join(self.package_folder, "bin"))
 
     def deploy(self):
         self.copy("*", dst="bin", src="bin")
