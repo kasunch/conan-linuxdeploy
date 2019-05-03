@@ -26,6 +26,7 @@ class LinuxdeployConan(ConanFile):
         self.requires("boost_filesystem/1.69.0@bincrafters/stable")
         self.requires("boost_regex/1.69.0@bincrafters/stable")
         self.requires("cmake_findboost_modular/1.69.0@bincrafters/stable")
+        self.requires("patchelf_installer/0.10@appimage-conan-community/stable")
 
     def build(self):
         cmake = CMake(self)
