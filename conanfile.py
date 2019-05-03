@@ -9,7 +9,7 @@ class LinuxdeployConan(ConanFile):
     url = "https://github.com/appimage-conan-community/linuxdeploy_installer"
     description = "AppDir creation and maintenance tool. Featuring flexible plugin system"
     topics = ("AppImage", "AppDir", "Tool")
-    settings = "os", "compiler", "build_type", "arch"
+    settings = "os", "compiler", "build_type", "arch", "os_build", "arch_build"
     generators = "cmake"
     build_requires = "cmake_installer/3.13.0@conan/stable"
     exports_sources = "patches/*"
