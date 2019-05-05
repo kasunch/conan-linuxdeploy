@@ -11,7 +11,7 @@ class LinuxdeployConan(ConanFile):
     topics = ("AppImage", "AppDir", "Tool")
     settings = "os", "compiler", "build_type", "arch", "os_build", "arch_build"
     generators = "cmake"
-    build_requires = "cmake_installer/3.13.0@conan/stable"
+    # build_requires = "cmake_installer/3.13.0@conan/stable"
     exports_sources = "patches/*"
 
     def source(self):
