@@ -21,7 +21,7 @@ class LinuxdeployConan(ConanFile):
         tools.patch(base_path="linuxdeploy", patch_file="patches/use_conan.patch")
 
     def requirements(self):
-        self.requires("libjpeg/[>=9c]@bincrafters/stable")
+        self.requires("libjpeg/9c@bincrafters/stable")
         self.requires("libpng/[>=1.6.36]@bincrafters/stable")
         self.requires("boost_filesystem/[>=1.69.0]@bincrafters/stable")
         self.requires("boost_regex/[>=1.69.0]@bincrafters/stable")
