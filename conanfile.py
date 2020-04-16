@@ -1,5 +1,4 @@
 from conans import ConanFile, CMake, tools
-from conans.errors import ConanException
 import os
 
 class LinuxdeployConan(ConanFile):
@@ -14,13 +13,6 @@ class LinuxdeployConan(ConanFile):
     generators = "cmake"
     # build_requires = "cmake_installer/3.13.0@conan/stable"
     exports_sources = "patches/*"
-
-    def config(self):
-        if "libcxx" in self.settings.compiler.fields:
-            if not "libstdc++11" in self.settings.compiler.libcxx:
-                raise ConanException("Only support libstdc++11 ABI")
-            if "libstdc++" in self.settings.compiler.libcxx:
-                self.settings.compiler.libcxx.remove("libstdc++")
 
     def source(self):
         self.run("git clone https://github.com/linuxdeploy/linuxdeploy.git --depth=1")
