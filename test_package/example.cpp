@@ -1,5 +1,3 @@
-#define _GLIBCXX_USE_CXX11_ABI 0
-
 #include <iostream>
 #include <linuxdeploy/core/appdir.h>
 #include <linuxdeploy/core/elf.h>
