@@ -17,7 +17,7 @@ extends:
     # Common build settings
     conanArchs: "x86_64"
     conanBuildTypes: "Release,Debug"
-    conanStableBranchPattern: "stable/*"
+    conanStableBranchPattern: "master"
     # GCC specific
     linuxGCCVersions: "7"
     # CI specific settings
